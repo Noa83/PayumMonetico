@@ -32,7 +32,6 @@ jobs:
                     php-version: "${{ matrix.php }}"
                     extensions: intl
                     coverage: none
-                    cache: composer
 
             -
                 name: Get Composer cache directory
@@ -81,7 +80,6 @@ jobs:
                     php-version: "8.2"
                     extensions: intl
                     coverage: none
-                    cache: composer
 
             -
                 name: Get Composer cache directory
