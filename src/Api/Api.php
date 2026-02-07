@@ -199,12 +199,12 @@ class Api
         $cca0 = ord($hexFinal);
 
         if ($cca0 > 70 && $cca0 < 97) {
-            $hexStrKey .= chr($cca0 - 23) . substr($hexFinal, 1, 1);
+            $hexStrKey .= chr($cca0 - 23) . $hexFinal[1];
         } else {
-            if (substr($hexFinal, 1, 1) == "M") {
-                $hexStrKey .= substr($hexFinal, 0, 1) . "0";
+            if ($hexFinal[1] === "M") {
+                $hexStrKey .= $hexFinal[0] . "0";
             } else {
-                $hexStrKey .= substr($hexFinal, 0, 2);
+                $hexStrKey .= $hexFinal[0] . $hexFinal[1];
             }
         }
 
@@ -239,13 +239,15 @@ class Api
         $safeChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890._-";
 
         $result = "";
-        for ($i = 0; $i < strlen($data); $i++) {
-            if (strstr($safeChars, $data[$i])) {
-                $result .= $data[$i];
+        $length = strlen($data);
+        for ($i = 0; $i < $length; $i++) {
+            $char = $data[$i];
+            if (strpos($safeChars, $char) !== false) {
+                $result .= $char;
             } elseif ("7F" >= $var = bin2hex(substr($data, $i, 1))) {
                 $result .= "&#x" . $var . ";";
             } else {
-                $result .= $data[$i];
+                $result .= $char;
             }
         }
 
