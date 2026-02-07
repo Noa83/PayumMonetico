@@ -21,7 +21,7 @@ class MoneticoGatewayFactory extends GatewayFactory
      *
      * @return MoneticoGatewayFactory
      */
-    public static function build(array $defaultConfig, GatewayFactoryInterface $coreGatewayFactory = null)
+    public static function build(array $defaultConfig, ?GatewayFactoryInterface $coreGatewayFactory = null)
     {
         return new static($defaultConfig, $coreGatewayFactory);
     }

@@ -18,9 +18,9 @@ class PaymentFormActionTest extends AbstractActionTest
 
     protected $actionClass = PaymentFormAction::class;
 
-    protected function setUp(): void
+    protected function createAction()
     {
-        $this->action = new $this->actionClass('template');
+        return new $this->actionClass('template');
     }
 
     /**

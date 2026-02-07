@@ -9,6 +9,7 @@ use Payum\Core\Gateway;
 use Payum\Core\GatewayFactory;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
+use Http\Mock\Client as MockClient;
 
 /**
  * Class MoneticoGatewayFactoryTest
@@ -36,6 +37,7 @@ class MoneticoGatewayFactoryTest extends TestCase
         $factory = new MoneticoGatewayFactory();
 
         $gateway = $factory->create([
+            'httplug.client' => new MockClient(),
             'mode'    => Api::MODE_PRODUCTION,
             'tpe'     => '123456',
             'key'     => '123456',
@@ -95,7 +97,9 @@ class MoneticoGatewayFactoryTest extends TestCase
 
         $factory = new MoneticoGatewayFactory();
 
-        $factory->create();
+        $factory->create([
+            'httplug.client' => new MockClient(),
+        ]);
     }
 
     public function test_configure_paths()

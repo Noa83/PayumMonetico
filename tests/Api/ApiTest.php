@@ -46,14 +46,14 @@ class ApiTest extends TestCase
             'lgue'             => 'FR',
             'societe'          => 'foobar',
             'mail'             => 'test@example.org',
-            'context_commande' => base64_encode(utf8_encode(json_encode([
+            'context_commande' => base64_encode((string) json_encode([
                 'billing' => [
                     'addressLine1' => '101 Rue de Roisel',
                     'city'         => 'Y',
                     'postalCode'   => '80190',
                     'country'      => 'FR',
                 ],
-            ]))),
+            ], JSON_UNESCAPED_UNICODE)),
         ]);
 
         $expected = '037989707dd8a50de71d74c52dd7f8bba9951d4f';
