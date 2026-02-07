@@ -92,7 +92,7 @@ class Api
             'texte-libre'       => $data['comment'],
             'url_retour_ok'     => $data['success_url'],
             'url_retour_err'    => $data['failure_url'],
-            'contexte_commande' => base64_encode(utf8_encode(json_encode($data['context']))),
+            'contexte_commande' => base64_encode((string) json_encode($data['context'], JSON_UNESCAPED_UNICODE)),
         ];
 
         $fields['nbrech'] = (0 < $count = count($data['schedule'])) ? $count : null;
