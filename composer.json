@@ -23,7 +23,8 @@
         "payum/core": "^1.5",
         "psr/log": "^1.0|^2.0|^3.0",
         "symfony/options-resolver": "^7.4",
-        "sokil/php-isocodes": "^2.0|^3.0"
+        "sokil/php-isocodes": "^4.0",
+        "sokil/php-isocodes-db-i18n": "^4.0"
     },
     "require-dev": {
         "php-http/guzzle7-adapter": "^1.0",
@@ -33,6 +34,11 @@
     "autoload": {
         "psr-4": {
             "Ekyna\\Component\\Payum\\Monetico\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ekyna\\Component\\Payum\\Monetico\\": "tests/"
         }
     }
 }
