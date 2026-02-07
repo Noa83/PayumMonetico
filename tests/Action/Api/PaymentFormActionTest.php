@@ -23,6 +23,11 @@ class PaymentFormActionTest extends AbstractActionTest
         $this->action = new $this->actionClass('template');
     }
 
+    protected function createAction()
+    {
+        return new $this->actionClass('template');
+    }
+
     /**
      * @test
      */
