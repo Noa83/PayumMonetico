@@ -244,7 +244,7 @@ class Api
             $char = $data[$i];
             if (strpos($safeChars, $char) !== false) {
                 $result .= $char;
-            } elseif ("7F" >= $var = bin2hex(substr($data, $i, 1))) {
+            } elseif ("7F" >= $var = bin2hex($char)) {
                 $result .= "&#x" . $var . ";";
             } else {
                 $result .= $char;
